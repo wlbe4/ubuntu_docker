@@ -10,5 +10,8 @@ adduser $USER_NAME sudo &>/dev/null
 usermod -aG sudo $USER_NAME &>/dev/null
 ## New added for disable sudo password
 echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+chown $USER_NAME:$USER_NAME /home/$USER_NAME
 cd /home/$USER_NAME
+cp /user_bashrc .bashrc
+chown $USER_NAME:$USER_NAME /home/$USER_NAME/.bashrc
 su $USER_NAME
